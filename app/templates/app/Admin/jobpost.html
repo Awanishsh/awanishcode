@@ -1,0 +1,100 @@
+{% extends "app/company/base2.html" %}
+{% block content %}
+
+<body class="bg-primary">
+
+        
+       
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                  
+                        <div class="card-header"><h3 class="text-center font-weight-light my-4">Job post form </h3></div>
+                        {% if msg %}
+
+                        <h4 style="color: green;">{{msg}}</h4>
+
+                        {% endif %}
+
+                        <div class="card-body">
+                            <form   action="{% url 'jobpost' pk=request.session.id  %}" method="POST"  enctype="multipart/form-data">
+                             {% csrf_token %}
+                               
+                                  
+                                <div class="form-floating mb-3">
+                                            <input class="form-control" id="" type="text" name="jobname" value="" placeholder="Job Name"/>
+                                            <label for="inputJobName"> Job Name</label>
+                                </div>
+                                   
+                            
+                                    
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="" type="text" name="Companyname" value="" placeholder="Company Name" />
+                                    <label for="inputEmail">Company Name</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="" type="text" name="companyaddress" placeholder="Company address" style=" margin-top: 20px;" />
+                                    <label for="inputcompanyaddress">Company address</label>
+                                </div>    
+                                <textarea name="jobdescription"  id="" cols="69" rows="2" placeholder=" Job description" style=" margin-top: 20px;"></textarea>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="" type="text" name="qulification" placeholder="Qualification" style=" margin-top: 20px;"/>
+                                    <label for="inputqualification">Qualification</label>
+                                </div> 
+                                 
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="" type="text" name="responsibility" placeholder="Responsbility" />
+                                    <label for="inputresponsbility">Responsbility</label>
+                                </div>
+                                
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="" type="text" name="location" placeholder="Location" />
+                                    <label for="inputlocatin">Location</label>
+                                </div> 
+                                
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="" type="text" name="comapanywebsite" placeholder="Company website" />
+                                    <label for="inputcompanywebsite">Company website</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="" type="email" name="Companyemail" placeholder="Company Email"/>
+                                    <label for="inputcompanyemail">Company Email</label>
+                                </div>
+
+
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="" type="text" name="companycontact" placeholder="Company contact"/>
+                                    <label for="inputcompanycontact">Company contact</label>
+                                </div>
+
+                               
+                                
+                               
+                               
+
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="" type="text" name="salarypachage" placeholder="Salary Package" />
+                                    <label for="inputsalarypackage">Salary Package</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="" type="text" name=" exprience" placeholder="Experience" />
+                                    <label for="inputexperience">Experience</label>
+                                </div>
+
+                                <input type="file" name="image" >
+                                <div><input type="submit" value="save"></div>
+                               
+                                </form>
+                                
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+
+</html>
+{% endblock %}

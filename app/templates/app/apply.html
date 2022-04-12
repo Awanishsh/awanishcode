@@ -1,0 +1,137 @@
+{% extends "app/base1.html" %}
+{% block content %}
+<!-- Start home -->
+<section class="bg-half page-next-level"> 
+    <div class="bg-overlay"></div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="text-center text-white">
+                    <h4 class="text-uppercase title mb-4">Candidate Apply Form</h4>
+                    <ul class="page-next d-inline-block mb-0">
+                        <li><a href="index.html" class="text-uppercase font-weight-bold">Home</a></li>
+                        <li>
+                            <span class="text-uppercase text-white font-weight-bold">Candidate Apply Form </span> 
+                            {% if msg %}
+
+                            <h4 style="color: rgb(14, 11, 235);">{{msg}}</h4>
+                             {% endif %}
+                        </li> 
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end home -->
+
+<!-- POST A JOB START -->
+<section class="section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="rounded shadow bg-white p-4">
+                    <div class="custom-form">
+                        <div id="message3"></div>
+                        {% if user %}
+                        {% if cand %}
+                        {% if job %}
+                        <form action="{% url 'applyjob' pk=job.id %}"method ="post"  name="" id="" enctype="multipart/form-data"> 
+                            {% csrf_token %}
+                            <h4 class="text-dark mb-3">Please inter your details :</h4>
+                           
+                           
+                            <div class="row">
+                                <div class="col-md-12">
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6"><label class="labels">Firstname</label><input type="text" name="Firstname" class="form-control" placeholder="first name" value="{{cand.firstname}}"></div>
+                           
+                        </div>
+                        <div>
+                            <div class="row mt-2">
+                            <div class="col-md-6"><label class="labels">Lastname</label><input type="text" name="Lastname" class="form-control" value="{{cand.lastname}}" placeholder="last name"></div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6"><label class="labels">Job Name</label><input type="text" name="jobname" class="form-control" placeholder="Job Name" value="{{job.jobname}}"></div>
+                            
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label class="labels">Contact Number</label><input type="text" name="Contact " class="form-control" placeholder="enter phone number" value="{{cand.contact}}"></div>
+                        </div>
+                        <div class="row mt-2">   
+                            <div class="col-md-6"><label class="labels">Address</label><input type="text" name="address" class="form-control" placeholder="enter address" value=""></div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6"><label class="labels">Email ID</label><input type="text"name="email"  class="form-control" placeholder="enter email id" value="{{user.email}}"></div>
+                        </div>  
+                        <div class="row mt-2">
+                            <div class="col-md-6"><label class="labels">DOB</label><input type="date" name="dob" class="form-control" placeholder="DOB" value=""></div>
+                        </div>    
+                        <div class="row mt-2">
+                            <div class="col-md-6"><label class="labels">Education </label><input type="text" name="education" class="form-control" placeholder="Education" value=""></div>
+                        </div>    
+                        <div class="row mt-2">
+                            <div class="col-md-6"><label class="labels">max_salary </label><input type="text" name="maxsalary" class="form-control" placeholder="max_salary" value=""></div>
+                        </div>  
+                        <div class="row mt-2">
+                            <div class="col-md-6"><label class="labels">min_salary </label><input type="text" name="minsalary" class="form-control" placeholder="min_salary" value=""></div>
+                        </div> 
+                        <div class="row mt-2">
+                            <div class="col-md-6"><label class="labels">website </label><input type="text" name="website" class="form-control" placeholder="website" value=""></div>
+                        </div>  
+                            <label class="col-md-12" >Gender-</label>
+                            <div><select name="gender" id="gender">
+                                <option value="">-Select Gender-</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="row mt-2">
+                           
+                            <div class="col-md-6"><label class="labels">State</label><input type="text" name="state" class="form-control" value="" placeholder="state"></div> 
+                        </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <ul class="list-inline mb-0">
+                                        <li class="list-inline-item">
+                                            <div class="input-group mt-2 mb-2">
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input" name="resume" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                                    <label class="custom-file-label rounded" ><i class="mdi mdi-cloud-upload mr-1"  ></i> Upload Resume</label>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li class="list-inline-item">
+                                            <h6 class="text-muted mb-0">Upload Resume.</h6>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-12 mt-2">
+                                   <button>save</button>
+                                </div>
+                            </div>
+                        </form>
+                        {% endif %}
+                        {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+      
+
+{% endblock %}
